@@ -4,12 +4,13 @@ import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestor
 import {
   Box, Typography, Paper, Alert,
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination,
-  AppBar, Toolbar, IconButton, Container, useTheme
+  AppBar, Toolbar, IconButton, Container, useTheme, Chip
 } from '@mui/material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import PeopleIcon from '@mui/icons-material/People';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import TimelineIcon from '@mui/icons-material/Timeline';
 
 export default function Dashboard({ mode, toggleColorMode }) {
   const [history, setHistory] = useState([]);
@@ -108,8 +109,41 @@ export default function Dashboard({ mode, toggleColorMode }) {
 
           {/* Columna Derecha: Tabla */}
           <Paper sx={{ p: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden', width: '100%', minHeight: 0 }}>
-            <Box p={3} pb={2} borderBottom={`1px solid ${theme.palette.divider}`}>
-              <Typography variant="h6" color="text.primary" sx={{ fontWeight: 400 }}>Historial de Datos</Typography>
+            <Box 
+              p={3} pb={2} 
+              borderBottom={`1px solid ${theme.palette.divider}`}
+              sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'space-between',
+                background: isDark ? 'linear-gradient(90deg, rgba(25,118,210,0.08) 0%, transparent 100%)' : 'linear-gradient(90deg, rgba(25,118,210,0.04) 0%, transparent 100%)'
+              }}
+            >
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+                <Box sx={{ 
+                  p: 1, 
+                  borderRadius: 2, 
+                  bgcolor: isDark ? 'rgba(25,118,210,0.15)' : 'rgba(25,118,210,0.08)',
+                  display: 'flex',
+                  color: 'primary.main'
+                }}>
+                  <TimelineIcon fontSize="small" />
+                </Box>
+                <Typography variant="h6" color="text.primary" sx={{ fontWeight: 600, letterSpacing: '-0.5px' }}>
+                  Historial de Movimientos
+                </Typography>
+              </Box>
+              <Chip 
+                label={`${history.length} Registros`} 
+                size="small" 
+                sx={{ 
+                  fontWeight: 600, 
+                  bgcolor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.04)',
+                  color: 'text.secondary',
+                  borderRadius: 1.5,
+                  border: `1px solid ${theme.palette.divider}`
+                }} 
+              />
             </Box>
             <TableContainer sx={{ flexGrow: 1, overflowY: 'auto' }}>
               <Table stickyHeader>
