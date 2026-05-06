@@ -149,10 +149,10 @@ export default function Dashboard({ mode, toggleColorMode }) {
               <Table stickyHeader>
                 <TableHead>
                   <TableRow>
-                    <TableCell sx={{ bgcolor: theme.palette.background.paper }}><Typography variant="subtitle2" color="text.secondary">Hora</Typography></TableCell>
                     <TableCell align="center" sx={{ bgcolor: theme.palette.background.paper }}><Typography variant="subtitle2" color="text.secondary">Dispositivo</Typography></TableCell>
                     <TableCell align="center" sx={{ bgcolor: theme.palette.background.paper }}><Typography variant="subtitle2" color="text.secondary">Acción</Typography></TableCell>
                     <TableCell align="center" sx={{ bgcolor: theme.palette.background.paper }}><Typography variant="subtitle2" color="text.secondary">Total Personas</Typography></TableCell>
+                    <TableCell sx={{ bgcolor: theme.palette.background.paper }}><Typography variant="subtitle2" color="text.secondary">Hora</Typography></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -164,7 +164,6 @@ export default function Dashboard({ mode, toggleColorMode }) {
                     }
                     return (
                       <TableRow key={record.id} hover>
-                        <TableCell sx={{ py: 1.5 }}>{timeStr}</TableCell>
                         <TableCell align="center" sx={{ py: 1.5 }}>{record.deviceID ?? '--'}</TableCell>
                         <TableCell align="center" sx={{ py: 1.5 }}>
                           <Typography variant="body2" fontWeight="bold" color={record.action === 'IN' ? 'success.main' : record.action === 'OUT' ? 'error.main' : 'text.primary'}>
@@ -172,6 +171,7 @@ export default function Dashboard({ mode, toggleColorMode }) {
                           </Typography>
                         </TableCell>
                         <TableCell align="center" sx={{ py: 1.5 }}>{record.currentPersonCount ?? '--'}</TableCell>
+                        <TableCell sx={{ py: 1.5 }}>{timeStr}</TableCell>
                       </TableRow>
                     );
                   })}
