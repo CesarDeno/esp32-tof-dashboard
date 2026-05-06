@@ -1,16 +1,49 @@
-# React + Vite
+# ESP32 ToF IoT Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashboard en tiempo real para la visualización de telemetría de sensores ToF (Time of Flight) y ambientales utilizando un microcontrolador ESP32-S3.
 
-Currently, two official plugins are available:
+## Características Principales
+* **Monitoreo en tiempo real**: Visualización de datos de sensores (Temperatura, Humedad, Conteo de personas).
+* **Integración Cloud**: Comunicación directa con Google Firestore para persistencia y sincronización de datos.
+* **Interfaz Responsiva**: Construida con React y Material UI para adaptarse a cualquier dispositivo.
+* **Visualización de Datos**: Gráficas dinámicas e interactivas implementadas con Chart.js.
+* **Despliegue Automatizado**: Configurado para publicarse fácilmente en GitHub Pages.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologías Utilizadas
+* **Frontend**: React 19, Vite, Material UI (MUI).
+* **Gráficos**: Chart.js, react-chartjs-2.
+* **Backend/BaaS**: Firebase (Firestore).
+* **Hardware Relacionado**: ESP32-S3, Sensor VL53L5CX (ToF).
 
-## React Compiler
+## Requisitos Previos
+* Node.js instalado (v18 o superior recomendado).
+* Proyecto configurado en Firebase con una base de datos Firestore activa.
+* Dispositivo ESP32 configurado para publicar telemetría en Firestore.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Instalación y Ejecución Local
 
-## Expanding the ESLint configuration
+1. Instalar las dependencias del proyecto:
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Ejecutar el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+3. Construir la versión de producción:
+   ```bash
+   npm run build
+   ```
+
+## Despliegue en GitHub Pages
+
+El proyecto incluye un script para compilar y desplegar automáticamente en GitHub Pages.
+
+1. Asegúrate de haber configurado tu repositorio remoto.
+2. Ejecuta el comando de despliegue:
+   ```bash
+   npm run deploy
+   ```
+3. Activa GitHub Pages en la configuración del repositorio seleccionando la rama `gh-pages`.
