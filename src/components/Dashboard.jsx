@@ -54,7 +54,7 @@ export default function Dashboard({ mode, toggleColorMode }) {
       <AppBar position="static" color="inherit" elevation={0} sx={{ width: '100%', borderBottom: `1px solid ${theme.palette.divider}` }}>
         <Toolbar sx={{ justifyContent: 'space-between', minHeight: '64px' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-            <img src="/favicon.ico" alt="Logo" style={{ width: '32px', height: '32px' }} />
+            <img src={`${import.meta.env.BASE_URL}favicon.ico`} alt="Logo" style={{ width: '32px', height: '32px' }} />
             <Typography variant="h6" component="h1" color="text.primary" sx={{ fontWeight: 400, letterSpacing: 0, textTransform: 'none', display: { xs: 'none', sm: 'block' } }}>
               Monitoreo IoT | Sensores ToF en Tiempo Real
             </Typography>
